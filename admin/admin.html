@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Panel Pengelola</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d4ed8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12h18a9 9 0 0 1-18 0z'/%3E%3Cpath d='M8 8c0-1.5 1-2 1-3.5M12 8c0-1.5 1-2 1-3.5M16 8c0-1.5 1-2 1-3.5'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--bg:#f6f7f9;--surface:#fff;--surface-2:#f0f2f5;--fg:#111827;--muted:#5f6878;--line:#e3e6ec;--line-2:#d1d6df;--accent:#1d4ed8;--accent-soft:#eef2ff;--ok:#15803d;--bad:#b42318;--bad-soft:#fef3f2;--warn:#fffaeb;--fb:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color-scheme:light}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--fb);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body.dirty{padding-bottom:88px}
+h1,h2,p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ic.sm{width:16px;height:16px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.muted{color:var(--muted)}
+.top{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.top-in{height:64px;display:flex;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:8px;font-weight:800;white-space:nowrap}
+.brand .ic{width:24px;height:24px;color:var(--accent);stroke-width:2}
+.brand small{font-weight:500;color:var(--muted);font-size:.88rem;padding-left:8px;border-left:1px solid var(--line-2);margin-left:2px}
+.grow{flex:1}
+#who{font-size:.88rem;color:var(--muted);white-space:nowrap}
+@media (max-width:560px){#who,.brand small{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:8px 14px;border-radius:8px;border:0;font:inherit;font-weight:600;font-size:.9rem;cursor:pointer;text-decoration:none;white-space:nowrap;transition:background .15s,box-shadow .15s}
+.btn:disabled{opacity:.6;cursor:progress}
+.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:#1e40af}
+.btn-ghost{background:var(--surface);color:var(--fg);box-shadow:inset 0 0 0 1px var(--line-2)}.btn-ghost:hover{background:var(--surface-2)}
+.btn-danger{background:var(--surface);color:var(--bad);box-shadow:inset 0 0 0 1px #f4c7c2}.btn-danger:hover{background:var(--bad-soft)}
+.link{border:0;background:none;padding:6px 4px;min-height:36px;font:inherit;font-weight:600;font-size:.88rem;color:var(--accent);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.link:hover{text-decoration:underline;text-underline-offset:3px}
+.link.bad{color:var(--bad)}
+.icb{width:36px;height:36px;border:0;background:none;color:var(--muted);display:grid;place-items:center;cursor:pointer}
+.icb:hover:not(:disabled){color:var(--fg)}.icb:disabled{opacity:.3;cursor:default}
+
+.login{max-width:400px;margin:64px auto;padding:28px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.login h1{font-size:1.4rem;letter-spacing:-.02em;margin-bottom:4px}
+.login form{display:grid;gap:14px;margin-top:22px}
+
+.layout{display:grid;gap:20px;padding-block:24px 48px}
+@media (min-width:860px){.layout{grid-template-columns:250px minmax(0,1fr);align-items:start}}
+.side{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px}
+@media (min-width:860px){.side{position:sticky;top:84px}}
+.side-h{display:flex;justify-content:space-between;align-items:center;padding:4px 6px 4px 10px;font-weight:700;font-size:.85rem;color:var(--muted)}
+.tl{display:grid;gap:2px;list-style:none;margin:0;padding:0}
+.tl button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:44px;padding:8px 10px;border:0;border-radius:8px;background:none;font:inherit;font-weight:500;color:var(--fg);text-align:left;cursor:pointer}
+.tl button:hover{background:var(--surface-2)}
+.tl button[aria-current="true"]{background:var(--accent-soft);color:var(--accent);font-weight:700}
+.badge{font-size:.72rem;font-weight:600;color:var(--muted);white-space:nowrap}
+
+.main{display:grid;gap:16px;min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;min-width:0}
+.card-h{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.card-h h2{font-size:1.05rem;letter-spacing:-.01em}
+.page-h{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.page-h h1{font-size:1.6rem;letter-spacing:-.025em;line-height:1.2}
+input,select,textarea{font:inherit;font-size:.92rem;color:var(--fg)}
+.field{display:grid;gap:6px;min-width:0;align-content:start}
+.field>span{font-size:.82rem;font-weight:600}
+.field small{color:var(--muted);font-size:.78rem}
+.field input,.field select,.field textarea{width:100%;min-height:42px;padding:8px 12px;border:1px solid var(--line-2);border-radius:8px;background:var(--surface);outline:none;transition:border-color .15s,box-shadow .15s}
+.field textarea{min-height:72px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.field input:user-invalid{border-color:#e8a59d}
+.grid{display:grid;gap:14px}
+@media (min-width:640px){.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.span2{grid-column:span 2}}
+.check{display:flex;align-items:center;gap:10px;min-height:42px;font-weight:500;cursor:pointer}
+.check input{width:18px;height:18px;accent-color:var(--accent)}
+.actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:18px}
+.ml{display:grid;list-style:none;margin:0;padding:0}
+.mi{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.mi:first-child{border-top:0;padding-top:0}
+.th{width:56px;height:56px;border-radius:8px;background:var(--surface-2);object-fit:cover;display:grid;place-items:center;color:#9aa2b1}
+.mi b{font-weight:600;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mi .d{display:block;font-size:.82rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mi .p{font-size:.85rem;font-variant-numeric:tabular-nums}
+.mi-a{display:flex;gap:0;align-items:center}
+@media (max-width:560px){.mi{grid-template-columns:48px minmax(0,1fr)}.th{width:48px;height:48px}.mi-a{grid-column:2}}
+.pic{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;align-items:center}
+.pic .prev{width:120px;aspect-ratio:4/3;border-radius:10px;background:var(--surface-2) center/cover;display:grid;place-items:center;color:#9aa2b1;overflow:hidden}
+.pic .prev img{width:100%;height:100%;object-fit:cover}
+.pic-a{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.empty{padding:28px 8px;text-align:center;color:var(--muted)}
+.err{color:var(--bad);font-size:.88rem}
+.errs{margin:0;padding:12px 14px 12px 32px;border-radius:10px;background:var(--bad-soft);border:1px solid #f4c7c2;color:var(--bad);font-size:.88rem}
+.note{font-size:.85rem;color:var(--muted)}
+dialog{width:min(560px,calc(100% - 32px));max-height:calc(100dvh - 32px);border:0;border-radius:14px;padding:24px;box-shadow:0 24px 48px -12px rgb(17 24 39/.35)}
+dialog::backdrop{background:rgb(17 24 39/.5)}
+dialog h2{font-size:1.15rem;margin-bottom:16px}
+.savebar{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--surface);box-shadow:0 -1px 0 var(--line),0 -8px 24px rgb(17 24 39/.08);padding:12px 0}
+.savebar .wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.savebar p{flex:1;min-width:180px;font-weight:600}
+.savebar p small{display:block;font-weight:400;color:var(--muted);font-size:.82rem}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:50;max-width:calc(100% - 32px);padding:10px 16px;border-radius:10px;background:var(--fg);color:#fff;font-size:.9rem;font-weight:500;box-shadow:0 12px 28px -10px rgb(0 0 0/.35)}
+body.dirty #toast{bottom:96px}
+@media (max-width:560px){.savebar p{flex-basis:100%;font-size:.92rem}.savebar .btn{flex:1}body.dirty{padding-bottom:140px}body.dirty #toast{bottom:150px}}
+.sk{background:linear-gradient(90deg,var(--surface-2) 0 35%,#fafbfc 50%,var(--surface-2) 65% 100%);background-size:260% 100%;animation:sh 1.15s linear infinite;border-radius:8px}
+@keyframes sh{from{background-position:100% 0}to{background-position:-160% 0}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+
+<header class="top"><div class="wrap top-in">
+<span class="brand"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18a9 9 0 0 1-18 0z"/><path d="M8 8c0-1.5 1-2 1-3.5M12 8c0-1.5 1-2 1-3.5M16 8c0-1.5 1-2 1-3.5"/></svg>Katering PENS<small>Panel pengelola</small></span>
+<span class="grow"></span><a class="link" id="site" target="_blank" rel="noopener" hidden>Lihat situs</a><span id="who"></span><button class="btn btn-ghost" id="logout" hidden>Keluar</button>
+</div></header>
+<main class="wrap" id="app"></main>
+<div class="savebar" id="savebar" hidden><div class="wrap"><p>Ada perubahan yang belum disimpan<small id="savehint"></small></p><button class="btn btn-ghost" id="undo">Batalkan</button><button class="btn btn-primary" id="save">Simpan perubahan</button></div></div>
+<dialog id="dlg"></dialog>
+<div id="toast" role="status" hidden></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rp=n=>'Rp'+Number(n||0).toLocaleString('id-ID');
+const icon=(d,c='')=>`<svg class="ic ${c}" viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
+const I={img:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/>',up:'<path d="m6 15 6-6 6 6"/>',down:'<path d="m6 9 6 6 6-6"/>',ext:'<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>'};
+const S={user:'',mode:'',site:'',data:null,sha:'',orig:'',cur:null};
+const app=$('#app'),dlg=$('#dlg');
+const T=()=>S.data.tenants.find(t=>t.id===S.cur);
+const imgSrc=p=>p?'/'+p.replace(/^\/+/,''):'';
+let toastT=0;
+function toast(m){const t=$('#toast');t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,3200)}
+
+async function api(path,opt={}){
+const r=await fetch(path,{...opt,headers:{'Content-Type':'application/json'},body:opt.body&&JSON.stringify(opt.body)});
+const j=await r.json().catch(()=>({}));
+if(r.status===401&&path!=='/api/login'){vLogin(S.data?j.error:'');throw Object.assign(new Error(j.error),{handled:true})}
+if(!r.ok)throw Object.assign(new Error(j.error||'Terjadi kesalahan. Coba lagi.'),{errors:j.errors});
+return j}
+async function busy(btn,fn){btn.disabled=true;try{await fn()}catch(e){if(!e.handled)toast(e.message)}finally{btn.disabled=false}}
+
+/* ---------- Status perubahan ---------- */
+function markDirty(){const d=JSON.stringify(S.data)!==S.orig;$('#savebar').hidden=!d;document.body.classList.toggle('dirty',d);
+$('#savehint').textContent=S.mode==='github'?'Setelah disimpan, situs publik diperbarui sekitar 1–2 menit kemudian.':'Disimpan langsung ke public/data.json di laptop ini.'}
+window.addEventListener('beforeunload',e=>{if(S.data&&JSON.stringify(S.data)!==S.orig){e.preventDefault();e.returnValue=''}});
+$('#undo').onclick=()=>{if(!confirm('Buang semua perubahan yang belum disimpan?'))return;S.data=JSON.parse(S.orig);if(!T())S.cur=S.data.tenants[0]?.id;markDirty();render()};
+$('#save').onclick=e=>busy(e.target,async()=>{
+try{const r=await api('/api/data',{method:'PUT',body:{data:S.data,sha:S.sha}});S.sha=r.sha;S.orig=JSON.stringify(S.data);markDirty();showErrors([]);
+toast(S.mode==='github'?'Tersimpan. Situs publik diperbarui sekitar 1–2 menit lagi.':'Tersimpan.')}
+catch(err){showErrors(err.errors||[]);throw err}});
+function showErrors(list){const box=$('#errs');if(!box)return;box.innerHTML=list.length?`<ul class="errs">${list.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:'';if(list.length)box.scrollIntoView({behavior:'smooth',block:'center'})}
+
+/* ---------- Login ---------- */
+function vLogin(msg=''){S.data=null;$('#logout').hidden=true;$('#site').hidden=true;$('#who').textContent='';$('#savebar').hidden=true;document.body.classList.remove('dirty');
+app.innerHTML=`<section class="login"><h1>Masuk ke panel pengelola</h1><p class="muted">Untuk tim pengelola Katering PENS.</p>
+<form id="lf"><label class="field"><span>Username</span><input name="user" autocomplete="username" autocapitalize="none" required></label>
+<label class="field"><span>Kata sandi</span><input name="pass" type="password" autocomplete="current-password" required></label>
+<p class="err" id="lerr" role="alert">${esc(msg)}</p><button class="btn btn-primary">Masuk</button></form></section>`;
+$('[name=user]').focus();
+$('#lf').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);
+busy(e.target.querySelector('button'),async()=>{$('#lerr').textContent='';
+try{await api('/api/login',{method:'POST',body:{user:f.get('user'),pass:f.get('pass')}});start()}catch(err){$('#lerr').textContent=err.message}})}}
+$('#logout').onclick=async()=>{if(JSON.stringify(S.data)!==S.orig&&!confirm('Perubahan yang belum disimpan akan hilang. Tetap keluar?'))return;await fetch('/api/logout',{method:'POST',headers:{'Content-Type':'application/json'}});S.orig=JSON.stringify(S.data);vLogin()};
+
+async function start(){
+app.innerHTML='<div class="layout"><div class="sk" style="height:240px"></div><div class="sk" style="height:320px"></div></div>';
+try{const me=await api('/api/me');Object.assign(S,{user:me.user,mode:me.mode,site:me.site});
+const d=await api('/api/data');S.data=d.data;S.sha=d.sha;S.orig=JSON.stringify(d.data)}
+catch(e){if(!e.handled)app.innerHTML=`<p class="empty">${esc(e.message)} <button class="link" onclick="start()">Coba lagi</button></p>`;return}
+$('#who').textContent=S.user;$('#logout').hidden=false;
+if(S.site){$('#site').href=S.site;$('#site').hidden=false}
+const h=decodeURIComponent(location.hash.slice(1));S.cur=S.data.tenants.some(t=>t.id===h)?h:S.data.tenants[0]?.id;render()}
+
+/* ---------- Tata letak ---------- */
+function render(){
+app.innerHTML=`<div class="layout"><aside class="side"><div class="side-h"><span>Tenant</span><button class="link" id="addT">Tambah</button></div><ul class="tl" id="tl"></ul></aside><div class="main" id="main"></div></div>`;
+$('#addT').onclick=newTenant;renderSide();
+const t=T();if(t){history.replaceState(null,'','#'+t.id);vTenant(t)}else $('#main').innerHTML='<p class="card empty">Belum ada tenant. Pilih "Tambah" untuk membuat tenant pertama.</p>'}
+function renderSide(){$('#tl').innerHTML=S.data.tenants.map(t=>`<li><button data-t="${esc(t.id)}" aria-current="${S.cur===t.id}"><span>${esc(t.name||'(tanpa nama)')}</span>${t.active===false?'<span class="badge">Disembunyikan</span>':''}</button></li>`).join('');
+$('#tl').querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{S.cur=b.dataset.t;render();scrollTo({top:0})})}
+
+/* ---------- Editor tenant ---------- */
+const PRE=['Hari H','H-1','H-2','H-3','H-7'];
+function vTenant(t){
+const f=(k,l,attrs,hint='',v=t[k])=>`<label class="field"><span>${l}</span><input data-k="${k}" ${attrs} value="${esc(v??'')}">${hint?`<small>${hint}</small>`:''}</label>`;
+$('#main').innerHTML=`<div id="errs"></div>
+<div class="page-h"><div><h1 id="tname">${esc(t.name||'(tanpa nama)')}</h1><p class="muted">${t.menu.length} menu${S.site?` · <a class="link" href="${esc(S.site.replace(/\/$/,''))}/#t-${esc(t.id)}" target="_blank" rel="noopener">Lihat halamannya ${icon(I.ext,'sm')}</a>`:''}</p></div>
+<label class="check"><input type="checkbox" id="act" ${t.active!==false?'checked':''}>Tampilkan di situs</label></div>
+<section class="card"><div class="card-h"><h2>Menu</h2><button class="btn btn-primary" id="addM">Tambah menu</button></div><div id="menu"></div></section>
+<section class="card"><div class="card-h"><h2>Profil stan</h2></div>
+<div class="grid g2">${f('name','Nama stan','required maxlength="60"')}${f('tag','Kategori singkat','maxlength="60" placeholder="Nasi kotak & tumpeng"')}
+${f('location','Lokasi stan','maxlength="80" placeholder="Kantin Gedung D4, stan 1"')}${f('wa','Nomor WhatsApp','required inputmode="numeric" pattern="62[0-9]{8,13}" placeholder="6281234567890"','Awali dengan 62, tanpa spasi atau tanda +')}</div>
+<div class="grid g3" style="margin-top:14px">${f('open','Jam buka','type="time" required')}${f('close','Jam tutup','type="time" required')}
+<label class="field"><span>Batas waktu pesan</span><select data-k="preorder">${PRE.concat(PRE.includes(t.preorder)?[]:[t.preorder]).map(p=>`<option ${p===t.preorder?'selected':''}>${esc(p)}</option>`).join('')}</select></label>
+${f('minOrder','Minimal pesanan (porsi)','type="number" min="1" step="1" required')}${f('prepMin','Waktu siap (menit)','type="number" min="0" step="1" required')}${f('radiusKm','Jangkauan antar (km)','type="number" min="0" step="0.5" required')}
+${f('freeKm','Gratis ongkir sampai (km)','type="number" min="0" step="0.5" required')}${f('perKm','Ongkir per km (Rp)','type="number" min="0" step="500" required')}</div>
+<div class="field" style="margin-top:14px"><span>Foto banner (opsional)</span>${picker('banner',t.banner,'Kalau kosong, sampul memakai foto menu.')}</div></section>
+<section class="card"><div class="card-h"><h2>Pengaturan lanjutan</h2></div>
+<div class="grid g2">${f('id','Id halaman','required pattern="[a-z0-9\\-]{2,40}"','Dipakai di alamat halaman tenant. Jangan diubah setelah situs dipromosikan.')}</div>
+<div class="actions" style="justify-content:flex-start"><button class="btn btn-danger" id="delT">Hapus tenant ini</button></div></section>`;
+const NUM=['minOrder','prepMin','radiusKm','freeKm','perKm'];
+$('#main').querySelectorAll('[data-k]').forEach(el=>el.oninput=()=>{const k=el.dataset.k;
+t[k]=NUM.includes(k)?(el.value===''?null:Number(el.value)):k==='id'?el.value.trim():el.value;
+if(k==='id')S.cur=t[k];if(k==='name'){$('#tname').textContent=t.name||'(tanpa nama)'}if(k==='name'||k==='id')renderSide();markDirty()});
+$('#act').onchange=e=>{t.active=e.target.checked;renderSide();markDirty()};
+$('#delT').onclick=()=>{if(!confirm(`Hapus tenant "${t.name}" beserta ${t.menu.length} menunya? Perubahan baru permanen setelah kamu menekan Simpan.`))return;
+S.data.tenants=S.data.tenants.filter(x=>x!==t);S.cur=S.data.tenants[0]?.id;markDirty();render()};
+bindPicker($('#main'),'banner',p=>{t.banner=p;markDirty()});
+$('#addM').onclick=()=>menuDialog(t);renderMenu(t)}
+
+function renderMenu(t){const box=$('#menu');
+box.innerHTML=t.menu.length?`<ul class="ml">${t.menu.map((m,i)=>`<li class="mi">${m.image?`<img class="th" src="${esc(imgSrc(m.image))}" alt="">`:`<span class="th">${icon(I.img)}</span>`}
+<span style="min-width:0"><b>${esc(m.name)}</b><span class="d">${esc(m.description||'')}</span><span class="p">${rp(m.price)} /${esc(m.unit)}</span></span>
+<span class="mi-a"><button class="icb" data-mv="${i}" data-dir="-1" aria-label="Naikkan" ${i?'':'disabled'}>${icon(I.up,'sm')}</button><button class="icb" data-mv="${i}" data-dir="1" aria-label="Turunkan" ${i<t.menu.length-1?'':'disabled'}>${icon(I.down,'sm')}</button>
+<button class="link" data-edit="${i}">Ubah</button><button class="link bad" data-del="${i}">Hapus</button></span></li>`).join('')}</ul>`
+:'<p class="empty">Belum ada menu. Tenant tanpa menu tidak tampil di situs.</p>';
+box.querySelectorAll('[data-mv]').forEach(b=>b.onclick=()=>{const i=+b.dataset.mv,j=i+ +b.dataset.dir;[t.menu[i],t.menu[j]]=[t.menu[j],t.menu[i]];markDirty();renderMenu(t)});
+box.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>menuDialog(t,+b.dataset.edit));
+box.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{const m=t.menu[+b.dataset.del];if(confirm(`Hapus menu "${m.name}"?`)){t.menu.splice(+b.dataset.del,1);markDirty();renderMenu(t)}})}
+
+/* ---------- Unggah foto ---------- */
+function picker(key,val,hint){return`<div class="pic" data-pic="${key}"><div class="prev">${val?`<img src="${esc(imgSrc(val))}" alt="">`:icon(I.img)}</div>
+<div class="field"><div class="pic-a"><label class="btn btn-ghost">Pilih foto<input type="file" accept="image/jpeg,image/png,image/webp" hidden></label>${val?'<button type="button" class="link bad" data-clear>Hapus foto</button>':''}</div><small>${hint} JPG, PNG, atau WEBP, maksimal 2 MB.</small></div></div>`}
+function bindPicker(root,key,set){const box=root.querySelector(`[data-pic="${key}"]`),inp=box.querySelector('input[type=file]');
+const show=p=>{box.querySelector('.prev').innerHTML=p?`<img src="${esc(imgSrc(p))}" alt="">`:icon(I.img)};
+const clr=()=>{const c=box.querySelector('[data-clear]');if(c)c.onclick=()=>{set('');show('');c.remove()}};clr();
+inp.onchange=()=>{const file=inp.files[0];inp.value='';if(!file)return;
+if(file.size>2*1024*1024)return toast('Ukuran foto maksimal 2 MB. Perkecil dulu fotonya.');
+const lbl=box.querySelector('label.btn');lbl.textContent='Mengunggah…';
+const rd=new FileReader();rd.onload=async()=>{try{const r=await api('/api/upload',{method:'POST',body:{name:file.name,base64:String(rd.result).split(',')[1]}});
+set(r.path);show(r.path);if(!box.querySelector('[data-clear]')){box.querySelector('.pic-a').insertAdjacentHTML('beforeend','<button type="button" class="link bad" data-clear>Hapus foto</button>');clr()}toast('Foto terunggah. Jangan lupa simpan perubahan.')}
+catch(e){if(!e.handled)toast(e.message)}finally{lbl.innerHTML='Pilih foto';lbl.append(inp)}};rd.readAsDataURL(file)}}
+
+/* ---------- Form menu ---------- */
+function menuDialog(t,i){const isNew=i==null,m=isNew?{name:'',description:'',price:'',unit:'box',image:''}:{...t.menu[i]};
+dlg.innerHTML=`<form id="mf"><h2>${isNew?'Tambah menu':'Ubah menu'}</h2><div class="grid g2">
+<label class="field span2"><span>Nama menu</span><input name="name" required maxlength="80" value="${esc(m.name)}"></label>
+<label class="field span2"><span>Deskripsi</span><textarea name="description" maxlength="200">${esc(m.description||'')}</textarea></label>
+<label class="field"><span>Harga (Rp)</span><input name="price" type="number" min="0" step="500" required value="${esc(m.price)}"><small>Tanpa titik, contoh 15000</small></label>
+<label class="field"><span>Satuan</span><input name="unit" required maxlength="20" list="units" value="${esc(m.unit)}"><datalist id="units"><option>box<option>porsi<option>cup<option>orang<option>gelas<option>pcs</datalist></label>
+<div class="field span2"><span>Foto</span>${picker('image',m.image,'Foto asli menu ini.')}</div>
+</div><div class="actions"><button type="button" class="btn btn-ghost" id="mc">Batal</button><button class="btn btn-primary">${isNew?'Tambahkan':'Terapkan'}</button></div></form>`;
+bindPicker(dlg,'image',p=>{m.image=p});dlg.showModal();$('#mc').onclick=()=>dlg.close();
+$('#mf').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);
+const row={name:f.get('name').trim(),description:f.get('description').trim(),price:Math.round(+f.get('price')),unit:f.get('unit').trim(),image:m.image||''};
+if(isNew)t.menu.push(row);else t.menu[i]=row;dlg.close();markDirty();renderMenu(t);
+$('#main .page-h .muted').firstChild.textContent=`${t.menu.length} menu`;toast(isNew?'Menu ditambahkan. Jangan lupa simpan perubahan.':'Menu diubah. Jangan lupa simpan perubahan.')}}
+
+/* ---------- Tenant baru ---------- */
+function newTenant(){
+dlg.innerHTML=`<form id="nf"><h2>Tambah tenant</h2><div class="grid">
+<label class="field"><span>Nama stan</span><input name="name" required maxlength="60"></label>
+<label class="field"><span>Id halaman</span><input name="id" required pattern="[a-z0-9\\-]{2,40}" placeholder="dapur-bu-win"><small>Huruf kecil, angka, dan tanda hubung. Dipakai di alamat halaman.</small></label>
+<label class="field"><span>Nomor WhatsApp</span><input name="wa" required inputmode="numeric" pattern="62[0-9]{8,13}" placeholder="6281234567890"></label>
+</div><p class="err" id="nerr" role="alert"></p><div class="actions"><button type="button" class="btn btn-ghost" id="nc">Batal</button><button class="btn btn-primary">Buat tenant</button></div></form>`;
+dlg.showModal();$('#nc').onclick=()=>dlg.close();
+const nm=dlg.querySelector('[name=name]'),id=dlg.querySelector('[name=id]');let touched=false;
+id.oninput=()=>touched=true;nm.oninput=()=>{if(!touched)id.value=nm.value.toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40)};
+$('#nf').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),nid=f.get('id');
+if(S.data.tenants.some(t=>t.id===nid)){$('#nerr').textContent='Id halaman itu sudah dipakai tenant lain.';return}
+S.data.tenants.push({id:nid,active:true,name:f.get('name').trim(),tag:'',location:'',wa:f.get('wa').trim(),open:'08:00',close:'16:00',minOrder:10,preorder:'H-1',radiusKm:3,prepMin:30,freeKm:1,perKm:2000,banner:'',menu:[]});
+S.cur=nid;dlg.close();markDirty();render();toast('Tenant dibuat. Lengkapi profil dan menunya, lalu simpan.')}}
+
+start();
+</script>
+</html>

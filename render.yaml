@@ -1,0 +1,38 @@
+services:
+  # Situs publik: file statis dari folder public/, cepat dan tidak pernah tidur.
+  - type: web
+    name: katering-pens
+    runtime: static
+    buildCommand: node check-data.mjs
+    staticPublishPath: ./public
+    headers:
+      - path: /data.json
+        name: Cache-Control
+        value: no-cache
+
+  # Panel admin: server Node kecil dengan login username dan kata sandi.
+  # Paket gratis tidur setelah ±15 menit tanpa akses; buka pertama kali butuh ±1 menit.
+  - type: web
+    name: katering-pens-admin
+    runtime: node
+    plan: free
+    buildCommand: node check-data.mjs
+    startCommand: node admin/server.mjs
+    healthCheckPath: /healthz
+    buildFilter:
+      paths:
+        - admin/**
+        - check-data.mjs
+    envVars:
+      - key: ADMIN_USERS
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GITHUB_REPO
+        sync: false
+      - key: SITE_URL
+        sync: false
+      - key: GITHUB_BRANCH
+        value: main
+      - key: SESSION_SECRET
+        generateValue: true

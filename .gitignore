@@ -1,0 +1,4 @@
+.taste-skill/
+*.docx.md
+node_modules/
+.env

@@ -1,0 +1,137 @@
+Kredit foto
+==========
+
+Foto di folder ini adalah foto contoh dari Wikimedia Commons untuk prototipe.
+Ganti dengan foto asli menu tiap tenant sebelum situs dipromosikan.
+
+bu-sri-ayam-bakar.jpg
+  Ayam bakar.jpg
+  Oleh: Nisa usrifatul
+  Lisensi: CC BY-SA 4.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Ayam_bakar.jpg
+
+bu-sri-nasi-campur.jpg
+  Nasi campur, Ubud, Indonesia.jpg
+  Oleh: Vyacheslav Argenberg
+  Lisensi: CC BY 4.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Nasi_campur,_Ubud,_Indonesia.jpg
+
+bu-sri-nasi-kuning.jpg
+  Nasi Kuning dan Ungkep Ayam.jpg
+  Oleh: RahmadHimawan Photography
+  Lisensi: CC BY-SA 4.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Nasi_Kuning_dan_Ungkep_Ayam.jpg
+
+bu-sri-rawon.jpg
+  Restoran Rawon Rosobo Mojoagung-3.jpg
+  Oleh: Indonesiagood
+  Lisensi: CC BY 4.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Restoran_Rawon_Rosobo_Mojoagung-3.jpg
+
+bu-sri-tumpeng.jpg
+  Nasi Tumpeng.jpg
+  Oleh: brother-harahap
+  Lisensi: CC BY 2.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Nasi_Tumpeng.jpg
+
+cak-man-ayam-geprek.jpg
+  Ayam Geprek Uyat.jpg
+  Oleh: Supardisahabu
+  Lisensi: CC BY-SA 4.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Ayam_Geprek_Uyat.jpg
+
+cak-man-ayam-penyet.jpg
+  Ayam penyet.JPG
+  Oleh: D.W. Fisher-Freberg
+  Lisensi: CC BY-SA 3.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Ayam_penyet.JPG
+
+cak-man-lele-penyet.jpg
+  Pecel Lele 1.JPG
+  Oleh: Gunawan Kartapranata
+  Lisensi: CC BY-SA 4.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Pecel_Lele_1.JPG
+
+cak-man-tahu-tempe.jpg
+  Sambal tempe penyet kemangi.JPG
+  Oleh: Sentausa
+  Lisensi: CC BY-SA 3.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Sambal_tempe_penyet_kemangi.JPG
+
+kopi-l2-coffee-break.jpg
+  Kue Lumpur.jpg
+  Oleh: Lyonerov
+  Lisensi: CC BY-SA 4.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Kue_Lumpur.jpg
+
+kopi-l2-es-kopi-susu.jpg
+  Iced Coffee in Glass - Sunshine Coffee - Laramie Cafe (53838344552).jpg
+  Oleh: Tony Webster
+  Lisensi: CC BY 2.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Iced_Coffee_in_Glass_-_Sunshine_Coffee_-_Laramie_Cafe_(53838344552).jpg
+
+kopi-l2-roti-bakar.jpg
+  Roti Bakar Aik Seng.jpg
+  Oleh: Mfook
+  Lisensi: CC BY-SA 4.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Roti_Bakar_Aik_Seng.jpg
+
+kopi-l2-teh-manis.jpg
+  Sweet Tea!.jpg
+  Oleh: Randy Greve
+  Lisensi: CC BY 2.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Sweet_Tea!.jpg
+
+mas-yanto-batagor.jpg
+  Batagor Savoy Homann Bandung.jpg
+  Oleh: Gunawan Kartapranata
+  Lisensi: CC BY-SA 3.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Batagor_Savoy_Homann_Bandung.jpg
+
+mas-yanto-cilok.jpg
+  Cilok-2.jpg
+  Oleh: MartinThoma
+  Lisensi: CC0
+  Sumber: https://commons.wikimedia.org/wiki/File:Cilok-2.jpg
+
+mas-yanto-siomay.jpg
+  Siomay Bandung.jpg
+  Oleh: Gunawan Kartapranata
+  Lisensi: CC BY-SA 4.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Siomay_Bandung.jpg
+
+mas-yanto-snack-box.jpg
+  Risol Sayur.jpg
+  Oleh: Supardisahabu
+  Lisensi: CC BY-SA 4.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Risol_Sayur.jpg
+
+pak-gito-bakso.jpg
+  Bakso Indonesian Meatball Soup from Solo.jpg
+  Oleh: Bajinra
+  Lisensi: CC0
+  Sumber: https://commons.wikimedia.org/wiki/File:Bakso_Indonesian_Meatball_Soup_from_Solo.jpg
+
+pak-gito-mie-ayam.jpg
+  Mi ayam jamur.JPG
+  Oleh: Midori
+  Lisensi: CC BY-SA 3.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Mi_ayam_jamur.JPG
+
+pak-gito-mie-ayam-bakso.jpg
+  Mie Ayam Ekstra Telur Bakso.jpg
+  Oleh: Dulily
+  Lisensi: CC BY-SA 4.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Mie_Ayam_Ekstra_Telur_Bakso.jpg
+
+pak-gito-pangsit.jpg
+  Deep-fried wontons.jpg
+  Oleh: lazy fri13th
+  Lisensi: CC BY 2.0
+  Sumber: https://commons.wikimedia.org/wiki/File:Deep-fried_wontons.jpg
+
+segar-es-teh.jpg
+  Iced tea with ice cubes.jpg
+  Oleh: Editor at Large
+  Lisensi: CC BY-SA 2.5
+  Sumber: https://commons.wikimedia.org/wiki/File:Iced_tea_with_ice_cubes.jpg
