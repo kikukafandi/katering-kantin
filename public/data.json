@@ -1,12 +1,12 @@
 {
   "tenants": [
     {
-      "id": "bu-sri",
+      "id": "dapoer-hana",
       "active": true,
-      "name": "Dapur Bu Sri",
-      "tag": "Nasi kotak & tumpeng",
-      "location": "Kantin Gedung D4, stan 1",
-      "wa": "6280000000101",
+      "name": "Dapoer Hana",
+      "tag": "Nasi Ayam",
+      "location": "Kantin Gedung D4, stan luar",
+      "wa": "6285658111123",
       "open": "07:00",
       "close": "15:00",
       "minOrder": 10,
@@ -18,50 +18,43 @@
       "banner": "",
       "menu": [
         {
-          "name": "Nasi Kotak Ayam Bakar",
-          "description": "Nasi, ayam bakar, lalapan, sambal, kerupuk",
-          "price": 20000,
+          "name": "Nasi Chicken Lemon",
+          "description": "Nasi, Ayam Katsu Lemon, Jagung, Sosis, Saus",
+          "price": 13000,
           "unit": "box",
-          "image": "img/bu-sri-ayam-bakar.jpg"
+          "image": "img/ayam-lemon.jpg"
         },
         {
-          "name": "Nasi Kotak Rawon",
-          "description": "Rawon daging, telur asin, tauge, sambal",
-          "price": 25000,
+          "name": "Nasi Beef Steak",
+          "description": "Nasi, Beef, Jagung, Sosis, Saus",
+          "price": 15000,
           "unit": "box",
-          "image": "img/bu-sri-rawon.jpg"
+          "image": "img/nasi-beef.jpg"
         },
         {
-          "name": "Nasi Campur Box",
-          "description": "Ayam suwir, telur bali, sayur, perkedel",
-          "price": 18000,
+          "name": "Nasi Telur Bumbu Padang",
+          "description": "Nasi, Telur, Bumbu Padang, Sosis, Sambal Hijau",
+          "price": 11000,
           "unit": "box",
-          "image": "img/bu-sri-nasi-campur.jpg"
+          "image": "img/telur-padang.jpg"
         },
         {
-          "name": "Nasi Kuning Box",
-          "description": "Nasi kuning, abon, telur dadar, sambal goreng",
-          "price": 17000,
+          "name": "Nasi Ayam Bumbu Hitam",
+          "description": "Nasi, Ayam Bumbu Hitam, Sosis, Saus",
+          "price": 13000,
           "unit": "box",
-          "image": "img/bu-sri-nasi-kuning.jpg"
-        },
-        {
-          "name": "Tumpeng Mini",
-          "description": "Porsi satu orang dengan lima macam lauk",
-          "price": 35000,
-          "unit": "porsi",
-          "image": "img/bu-sri-tumpeng.jpg"
+          "image": ""
         }
       ]
     },
     {
-      "id": "cak-man",
+      "id": "kantin-pustika",
       "active": true,
-      "name": "Penyetan Cak Man",
-      "tag": "Katering penyetan & geprek",
+      "name": "Kantin Pustika",
+      "tag": "Katering Mangut & Pecel",
       "location": "Kantin Gedung D3, stan 4",
-      "wa": "6280000000102",
-      "open": "10:00",
+      "wa": "628561566938",
+      "open": "07:00",
       "close": "20:00",
       "minOrder": 15,
       "preorder": "H-1",
@@ -72,42 +65,28 @@
       "banner": "",
       "menu": [
         {
-          "name": "Ayam Geprek Box",
-          "description": "Nasi, ayam geprek, sambal bawang, lalapan",
-          "price": 15000,
+          "name": "Nasi Mangut",
+          "description": "Nasi, Kuah Mangut, Tahu, Tempe, Telur & add-ons",
+          "price": 11000,
           "unit": "box",
-          "image": "img/cak-man-ayam-geprek.jpg"
+          "image": "img/Mangut.jpg"
         },
         {
-          "name": "Ayam Penyet Box",
-          "description": "Nasi, ayam goreng, sambal terasi, tahu tempe",
-          "price": 17000,
+          "name": "Nasi Pecel",
+          "description": "Nasi, Bumbu Pecel, Tahu, Tempe, Telur",
+          "price": 11000,
           "unit": "box",
-          "image": "img/cak-man-ayam-penyet.jpg"
-        },
-        {
-          "name": "Lele Penyet Box",
-          "description": "Nasi, lele goreng kering, lalapan",
-          "price": 14000,
-          "unit": "box",
-          "image": "img/cak-man-lele-penyet.jpg"
-        },
-        {
-          "name": "Paket Tahu Tempe",
-          "description": "Nasi, tahu tempe penyet, sayur, sambal",
-          "price": 10000,
-          "unit": "box",
-          "image": "img/cak-man-tahu-tempe.jpg"
+          "image": "img/Pecel.jpg"
         }
       ]
     },
     {
-      "id": "pak-gito",
+      "id": "kantin-bu-win",
       "active": true,
-      "name": "Mie Ayam Pak Gito",
-      "tag": "Mie ayam & bakso untuk acara",
+      "name": "Dapur Bu Win",
+      "tag": "Nasi Ayam dan Varian Bumbu",
       "location": "Kantin Gedung D4, stan 3",
-      "wa": "6280000000103",
+      "wa": "62859187462500",
       "open": "09:00",
       "close": "16:00",
       "minOrder": 20,
@@ -119,42 +98,70 @@
       "banner": "",
       "menu": [
         {
-          "name": "Mie Ayam Cup",
-          "description": "Mie ayam porsi acara dalam cup tertutup",
-          "price": 12000,
-          "unit": "cup",
-          "image": "img/pak-gito-mie-ayam.jpg"
-        },
-        {
-          "name": "Mie Ayam Bakso",
-          "description": "Mie ayam dengan tiga bakso sapi",
-          "price": 15000,
-          "unit": "porsi",
-          "image": "img/pak-gito-mie-ayam-bakso.jpg"
-        },
-        {
-          "name": "Bakso Prasmanan",
-          "description": "Gerobak bakso di lokasi acara, kuah panas",
-          "price": 15000,
-          "unit": "orang",
-          "image": "img/pak-gito-bakso.jpg"
-        },
-        {
-          "name": "Pangsit Goreng Box",
-          "description": "Isi 10, saus sambal",
-          "price": 8000,
+          "name": "Nasi Ayam Chili Padi",
+          "description": "Nasi, Ayam, dibalur sambal chili padi",
+          "price": 12500,
           "unit": "box",
-          "image": "img/pak-gito-pangsit.jpg"
+          "image": "img/ayam-cp.webp"
+        },
+        {
+          "name": "Nasi Ayam Bumbu Item",
+          "description": "Nasi, Ayam, Bumbu Hitam, dan sambal",
+          "price": 12500,
+          "unit": "box",
+          "image": "img/ayam-item.webp"
+        },
+        {
+          "name": "Nasi Ayam Madu Korea",
+          "description": "Nasi, Ayam Katsu, saus madu korea",
+          "price": 13000,
+          "unit": "box",
+          "image": "img/ayam-madu-korea.webp"
+        },
+        {
+          "name": "Nasi Ayam Woku",
+          "description": "Nasi, Ayam, bumbu woku",
+          "price": 12000,
+          "unit": "box",
+          "image": "img/ayam-woku.webp"
+        },
+        {
+          "name": "Nasi Telur Bumbu Item",
+          "description": "Nasi, Telur, bumbu hitam, sambal",
+          "price": 10000,
+          "unit": "box",
+          "image": "img/telur-item.webp"
+        },
+        {
+          "name": "Nasi Ayam Madu Chili Padi",
+          "description": "Nasi, Ayam Katsu, dengan sambal chili padi",
+          "price": 13000,
+          "unit": "box",
+          "image": "img/ayam-madu-cp.webp"
+        },
+        {
+          "name": "Nasi Ayam Madu Bumbu Item",
+          "description": "Nasi, Ayam Madu, bumbu hitam",
+          "price": 13000,
+          "unit": "box",
+          "image": ""
+        },
+        {
+          "name": "Nasi Telur Chili Padi",
+          "description": "Nasi, Telur, dengan sambal chili padi",
+          "price": 10000,
+          "unit": "box",
+          "image": "img/telur-cp.webp"
         }
       ]
     },
     {
-      "id": "kopi-l2",
+      "id": "kantin-cireng",
       "active": true,
-      "name": "Kopi Lantai Dua",
-      "tag": "Coffee break & snack rapat",
-      "location": "Gedung Pascasarjana, lantai 2",
-      "wa": "6280000000104",
+      "name": "Kantin Cireng",
+      "tag": "Cireng Ayam, Sempol Ayam dan Gorengan",
+      "location": "Kantin Gedung D3",
+      "wa": "6287819974042",
       "open": "08:00",
       "close": "21:00",
       "minOrder": 10,
@@ -166,42 +173,84 @@
       "banner": "",
       "menu": [
         {
-          "name": "Paket Coffee Break",
-          "description": "Kopi atau teh, dua kue basah",
-          "price": 15000,
-          "unit": "orang",
-          "image": "img/kopi-l2-coffee-break.jpg"
+          "name": "Cireng isi",
+          "description": "Cireng dengan isian ayam suwir, varian pedas/kare/usus",
+          "price": 20000,
+          "unit": "box",
+          "image": "img/cireng-isi.webp"
         },
         {
-          "name": "Es Kopi Susu",
-          "description": "Gula aren, cup 16 oz",
-          "price": 12000,
-          "unit": "cup",
-          "image": "img/kopi-l2-es-kopi-susu.jpg"
+          "name": "Tahu walik",
+          "description": "Tahu walik goreng",
+          "price": 20000,
+          "unit": "box",
+          "image": "img/tahu-walik.webp"
         },
         {
-          "name": "Teh Manis Hangat",
-          "description": "Disajikan dalam termos, gelas disediakan",
-          "price": 5000,
-          "unit": "gelas",
-          "image": "img/kopi-l2-teh-manis.jpg"
+          "name": "Sempol Ayam",
+          "description": "Sempol dengan isian tepung dan daging ayam",
+          "price": 10000,
+          "unit": "box",
+          "image": "img/sempol-ayam.webp"
         },
         {
-          "name": "Roti Bakar Box",
+          "name": "Sempol Ayam Isi",
+          "description": "Sempol Ayam dengan isian Sosis/Keju",
+          "price": 20000,
+          "unit": "box",
+          "image": ""
+        },
+        {
+          "name": "Cheese Roll",
           "description": "Cokelat keju, isi 2 potong",
           "price": 12000,
           "unit": "box",
-          "image": "img/kopi-l2-roti-bakar.jpg"
+          "image": "img/cheese-roll.webp"
+        },
+        {
+          "name": "Wish Bombs",
+          "description": "Cireng isian mix",
+          "price": 20000,
+          "unit": "box",
+          "image": ""
+        },
+        {
+          "name": "Wish Sticks",
+          "description": "Sempol mix original dan isi sosis/keju",
+          "price": 14000,
+          "unit": "box",
+          "image": ""
+        },
+        {
+          "name": "BombStick A",
+          "description": "5 Sempol original + 3 Cireng isi",
+          "price": 10000,
+          "unit": "box",
+          "image": ""
+        },
+        {
+          "name": "BombStick B",
+          "description": "5 Sempol isi + 3 Cireng isi",
+          "price": 15000,
+          "unit": "box",
+          "image": ""
+        },
+        {
+          "name": "Flip BombStick",
+          "description": "Tahu Walik + Sempol + Cireng isi",
+          "price": 13000,
+          "unit": "box",
+          "image": ""
         }
       ]
     },
     {
-      "id": "segar",
+      "id": "kedai-ceria",
       "active": true,
-      "name": "Segar Jaya",
-      "tag": "Minuman & es buah prasmanan",
+      "name": "Kedai Ceria",
+      "tag": "Kentang, Sosis dan Snacks",
       "location": "Kantin Gedung D3, stan 2",
-      "wa": "6280000000105",
+      "wa": "62895620149655",
       "open": "08:00",
       "close": "17:00",
       "minOrder": 20,
@@ -213,38 +262,59 @@
       "banner": "",
       "menu": [
         {
-          "name": "Es Teh Cup",
-          "description": "Cup 16 oz dengan tutup segel",
-          "price": 4000,
-          "unit": "cup",
-          "image": "img/segar-es-teh.jpg"
+          "name": "Kentang Mix Platter",
+          "description": "Kentang mix platter dengan varian saus",
+          "price": 10000,
+          "unit": "box",
+          "image": "img/kentang-platter.webp"
         },
         {
-          "name": "Es Jeruk Cup",
-          "description": "Jeruk peras asli",
-          "price": 5000,
-          "unit": "cup",
-          "image": ""
+          "name": "Sosis",
+          "description": "Sosis bakar dengan varian saus",
+          "price": 10000,
+          "unit": "box",
+          "image": "img/sosis.webp"
         },
         {
-          "name": "Jus Buah Cup",
-          "description": "Pilih alpukat, jambu, atau mangga",
-          "price": 8000,
-          "unit": "cup",
-          "image": ""
+          "name": "Otak-otak ikan",
+          "description": "Otak-otak ikan dengan varian saus",
+          "price": 10000,
+          "unit": "box",
+          "image": "img/otak-otak-ikan.webp"
         },
         {
-          "name": "Es Buah Prasmanan",
-          "description": "Disajikan di lokasi dalam wadah besar",
-          "price": 8000,
-          "unit": "porsi",
-          "image": ""
+          "name": "Basreng",
+          "description": "basreng crispy",
+          "price": 10000,
+          "unit": "box",
+          "image": "img/basren.webp"
+        },
+        {
+          "name": "Nugget Crispy",
+          "description": "nugget crispy dengan saus",
+          "price": 10000,
+          "unit": "box",
+          "image": "img/nugget-crispy.webp"
+        },
+        {
+          "name": "Cireng",
+          "description": "Cireng salju dengan saus",
+          "price": 10000,
+          "unit": "box",
+          "image": "img/cireng.webp"
+        },
+        {
+          "name": "Sempol",
+          "description": "Sempol ayam dengan saus",
+          "price": 10000,
+          "unit": "box",
+          "image": "img/sempol.webp"
         }
       ]
     },
     {
       "id": "mas-yanto",
-      "active": true,
+      "active": false,
       "name": "Siomay Mas Yanto",
       "tag": "Snack box & jajanan",
       "location": "Depan Masjid Kampus",
